@@ -87,3 +87,47 @@ header > nav > div > ul > li {
     background-color: rgb(247, 168, 204);
 }
 
+.email_form_sign{
+    border: 1px solid black;
+    border-radius: 5px;
+    outline-style: dotted;
+    padding: 10px 20px;
+}
+
+.email_form_sign >div > button {
+    background-color: black ;
+    color: white;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    font-family: 'Changa One', cursive, sans-serif;
+    font-weight: bolder;
+}
+
+.news-main > .row > .row > .col-md-4 > .row > .col-md-4 > h5{
+    border: 1px solid rgb(85, 210, 76);
+    background-color: rgb(85, 210, 76);
+    color: white;
+    padding: 10px 30px;
+    font-size: 25px;
+    border-radius: 20px;
+    font-family: 'Changa One', cursive, sans-serif;
+    font-weight: bolder;
+}
+
+.news-main > .title > h2{
+    font-weight: 900;
+    color: gray;
+    font-weight: bolder;
+}
+
+.footer-main{
+    background-image: url(../images/bg-footer.gif);
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+}
+
+.footer-main >div >div > ul > li > a{
+    color: white;
+}
