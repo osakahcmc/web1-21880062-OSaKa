@@ -14,9 +14,9 @@ header{
     font-weight: bold;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Changa One', cursive;
-    font-weight: 400;
+h1, h2, h3, h4, h5, h6  {
+    font-family: 'Changa One', cursive, sans-serif;
+    font-weight: bolder;
 }
 
 h1 {
@@ -77,5 +77,13 @@ header > nav > div > ul > li {
 .ModalCarrot{
     position:relative;
     z-index:-1;
+}
+
+.content_box > .col-3 > .card >.card-body > h3{
+    font-weight: 900;
+}
+
+.paragrahp{
+    background-color: rgb(247, 168, 204);
 }
 
