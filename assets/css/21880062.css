@@ -131,3 +131,10 @@ header > nav > div > ul > li {
 .footer-main >div >div > ul > li > a{
     color: white;
 }
+
+#exampleModal > .modal-dialog > .modal-content >form > .modal-header {
+    font-weight: 900;
+    font-size: 30px;
+    color: white;
+    background-color: rgb(87, 194, 169);
+}
