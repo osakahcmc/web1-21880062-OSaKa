@@ -138,3 +138,12 @@ header > nav > div > ul > li {
     color: white;
     background-color: rgb(87, 194, 169);
 }
+
+header > nav > a > strong > div > div{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+header > nav > div > ul > .nav-item.active > a{
+    color: rgb(53, 193, 193) !important;
+}
