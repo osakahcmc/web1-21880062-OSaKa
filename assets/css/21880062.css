@@ -144,7 +144,8 @@ header > nav > a > strong > div > div{
     max-height: 50px;
 }
 
-header > nav > div > ul > .nav-item.active > a{
+header > nav > div > ul > .nav-item.active > a,
+.footer-main > .row > .col-12 > .nav > .nav-item.active > a{
     color: rgb(53, 193, 193) !important;
 }
 
@@ -155,4 +156,8 @@ header > nav > div > ul > .nav-item.active > a{
 
 .web1-text{
     color: rgb(62, 162, 228) !important;
+}
+
+.second-paragraph{
+    background-color: rgb(247, 168, 204);
 }

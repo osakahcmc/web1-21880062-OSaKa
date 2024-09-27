@@ -7,6 +7,20 @@ function rollover(img, src, isActive = true) {
     img.nextElementSibling.classList.toggle('web1-text');
 }
 
+// Cache the list, and the items
+const links = document.querySelector(' li');
+// adding a click event on all elements 
+links.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      // if we click first thing is deleting the active class from all link
+      links.forEach((link) => {
+        link.classList.remove('active')
+      })
+      // then in the end add the active class only in the correct one
+      e.target.classList.add('active')
+    })
+  })
+
 const API = 'https://web1-api.vercel.app/api';
 
 async function loadData(request, templateId, viewId) {
