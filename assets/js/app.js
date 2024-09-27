@@ -1,5 +1,10 @@
-function rollover(img, src) {
-    img.src = src
+function rollover(img, src, isActive = true) {
+    if(isActive){
+        img.src = src.replace('.png', '-active.png');
+    }else{
+        img.src = src;
+    }
+    img.nextElementSibling.classList.toggle('web1-text');
 }
 
 const API = 'https://web1-api.vercel.app/api';

@@ -147,3 +147,12 @@ header > nav > a > strong > div > div{
 header > nav > div > ul > .nav-item.active > a{
     color: rgb(53, 193, 193) !important;
 }
+
+#banner-small {
+    background-image: url('../images/banner-small.jpg');
+    padding: 5px;
+}
+
+.web1-text{
+    color: rgb(62, 162, 228) !important;
+}
