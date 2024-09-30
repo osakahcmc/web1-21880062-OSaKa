@@ -158,6 +158,22 @@ header > nav > div > ul > .nav-item.active > a,
     color: rgb(62, 162, 228) !important;
 }
 
-.second-paragraph{
+.second-about{
     background-color: rgb(247, 168, 204);
+}
+
+#our-vision > div > div > div > a{
+    text-decoration: none;
+}
+
+#our-vision > div > div > div > a >h5{
+    color: black;
+}
+
+#our-team > div > a  {
+    text-decoration: none;
+}
+
+#our-team > div > a >h3  {
+    color: black;
 }

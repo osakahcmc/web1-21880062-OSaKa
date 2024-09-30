@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,59 +64,24 @@
         </header>
         <main id="app">
 
-          <div class="about-page">
-            <!-- INFO -->
-            <div class="row container firt-paragraph">
+          <div class="about-page" id="content">
+
+            <!-- ANOUT, VISIOn -->
+            <div class="row container first-about">
               <div class="col-md-1">
 
               </div>
-              <div class="col-md-7">
-                <div class="row">
-                  <div class="col-12">
-                    <h1>About Us</h1>
-                  </div>
-                  <div class="col-md-4">
-                    <img src="assets/images/about-1.jpg"  class ="w-100" alt="about">
-                  </div>
-                  <div class="col-md-8">
-                    <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h3>
-                    <p class="text-black-50">Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                      Fuga maiores nulla sint asperiores! Sapiente mollitia ducimus dolores accusantium ut, 
-                      voluptatibus quibusdam ad dolorum officiis amet sunt perferendis exercitationem officia odio?</p>
-                      <a href="#">Read more</a>
-                  </div>
-                </div>
+              <div class="col-md-7" id="about-us">
+                
               </div>
-              <div class="col-md-4">
-                <div class="row">
-                  <div class="col-12">
-                    <h1>Our Vision</h1>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4">
-                      <img src="assets/images/vision/vision-1.jpg" alt="vision1">
-                    </div>
-                    <div class="col-md-8">
-                      <h3>Accumsan et</h3>
-                      <p class="text-black-50">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4">
-                      <img src="assets/images/vision/vision-2.jpg" alt="vision2">
-                    </div>
-                    <div class="col-md-8">
-                      <h3>Ut ultricies cond.</h3>
-                      <p class="text-black-50">Wel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
-                        dignissim.</p>
-                    </div>
-                  </div>
-                </div>
+              <div class="col-md-4" id="our-vision">
+                
               </div>
             </div>
 
-            <!-- COMMENT-->
-            <div class="row second-paragraph my-5">
+            <!-- Testimonials-->
+            <div class="row second-about my-5">
+
               <div class="col-md-1">
 
               </div>
@@ -173,8 +137,8 @@
               </div>
             </div>
 
-            <!-- HUMAN -->
-            <div class="row third-paragraph my-3">
+            <!-- OUR TEAM -->
+            <div class="row third-about my-3">
               <div class="col-md-1">
 
               </div>
@@ -184,35 +148,8 @@
                     <h1>Our Team</h1>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-3">
-                    <img src="assets/images/our-team/team-1.jpg" class="w-100" alt="pic1">
-                    <h3>Emily Cramer</h3>
-                    <p class="text-black-50">
-                      Duis in libero hendrerit magna con sectetur. tristique! Suspendisse.
-                    </p>
-                  </div>
-                  <div class="col-md-3">
-                    <img src="assets/images/our-team/team-2.jpg" class="w-100" alt="pic2">
-                    <h3>Michael Dutton</h3>
-                    <p class="text-black-50">
-                      In dictum diam quis metus tempus, quis pellentesque ligula auctor.
-                    </p>
-                  </div>
-                  <div class="col-md-3">
-                    <img src="assets/images/our-team/team-3.jpg" class="w-100" alt="pic3">
-                    <h3>Cristal Adams</h3>
-                    <p class="text-black-50">
-                      Vivamus dignissim, neque id blandit luctus, nisi quam pretium
-                    </p>
-                  </div>
-                  <div class="col-md-3">
-                    <img src="assets/images/our-team/team-4.jpg" class="w-100" alt="pic4">
-                    <h3>David Farmer</h3>
-                    <p class="text-black-50">
-                      Lectus ligula, laoreet elementum neque rutrum vitae.
-                    </p>
-                  </div>
+                <div class="row" id="our-team">
+                  
                 </div> 
               </div>
               <div class="col-md-1">
@@ -262,6 +199,88 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js" integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+            <script id="about-us-template" type="text/x-handlebars-template">
+              <div class="row">
+                {{#each data}}
+                <div class="col-md-4">
+                  <h1>{{name}}</h1>
+                  <img src="assets/{{thumbpath}}"  class ="w-100" alt="{{name}}">
+                </div>
+                <div class="col-md-8">
+                  <p class="text-black-50 about-paragraph">{{{summary}}}</p>
+                    <a href="#" onclick="loadData('aboutus/{{id}}','handlebars-details','content')">Read more</a>
+                </div>
+                {{/each}}
+              </div>
+            </script>
+
+            <script id="our-vision-template" type="text/x-handlebars-template">
+              <div class="row">
+                <div class="col-12">
+                  <h1>Our Vision</h1>
+                </div>
+                <div class="row">
+                  {{#each data}}
+                    <div class="col-md-4 mb-2">
+                      <a href="#" onclick="loadData('visions/{{id}}','handlebars-details','content')">
+                        <img src="assets/{{thumbpath}}" class="w-100" alt="{{name}}">
+                      </a>
+                    </div>
+                    <div class="col-md-8 mb-2">
+                      <a href="#" onclick="loadData('visions/{{id}}','handlebars-details','content')">
+                        <h5>{{name}}</h5>
+                        <p class="text-black-50">{{{summary}}}</p>
+                      </a>
+                    </div>
+                  </a>
+                  {{/each}}
+                </div>
+              </div>
+            </script>
+
+            <script id="our-team-template" type="text/x-handlebars-template">
+              {{#each data}}
+              <div class="col-md-3">
+                <a href="#" onclick="loadData('team/{{id}}','handlebars-details','content')">
+                  <img src="assets/{{thumbpath}}" class="w-100" alt="{{name}}">
+                  <h3>{{name}}</h3>
+                  <p class="text-black-50">
+                    {{{summary}}}
+                  </p>
+                </a>
+              </div>
+              {{/each}}
+            </script> 
+            
+            <script id="handlebars-details" type="text/x-handlebars-template">
+              {{#each data}}
+              <div class="row my-5">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                  <div class="row">
+                    <div class="col-12">
+                      <h1 class="py-3">{{name}}</h1>
+                    </div>
+                    <div class="col-4">
+                      <img src="assets/{{imagepath}}"  class ="w-100 h-100" alt="{{name}}">
+                    </div>
+                    <div class="col-8">
+                      <p>{{{description}}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+              </div>
+              {{/each}}
+            </script>
+
+            <script type="text/javascript">
+              loadData('aboutus','about-us-template','about-us');
+              loadData('visions','our-vision-template','our-vision');
+              loadData('team','our-team-template','our-team');
+            </script>
 
             <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
