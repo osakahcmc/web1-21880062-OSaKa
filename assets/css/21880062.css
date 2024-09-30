@@ -178,10 +178,26 @@ header > nav > div > ul > .nav-item.active > a,
     color: black;
 }
 
-/* #testimonials >div > div > a{
-    text-decoration: none;
-} */
+.gallery-main > div > div > div > nav > ul {
+    list-style-type: none;
+}
 
-/* #testimonials >div > div > a > p{
+.gallery-main > div > div > div > nav > ul > li {
+    display: inline;
+    margin: 0px 10px;
+}
+
+.gallery-main > div > div > div > nav > ul > li >a.active {
+    color: rgb(66, 140, 209);
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.gallery-main > div > div > div > nav > ul > li >a:not(.active) {
     color: black;
-} */
+    text-decoration: none
+}
+
+#gallery >div >img{
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}

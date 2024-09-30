@@ -65,7 +65,30 @@
         </header>
         <main id="app">
 
-           
+            <div class="gallery-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-1">
+
+                        </div>
+                        <div class="col-10">
+                            <h1 class="text-light text-center d-block">Gallery</h1>
+                            <p>Filter by category</p>
+                            <nav>
+                              <ul onclick="myFunction(event)" class="navList" id="gallery-categories">
+                                
+                              </ul>
+                            </nav>
+                            <div class="row" id="gallery">
+                             
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </main>
 
@@ -109,6 +132,26 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js" integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+
+            <script id="gallery-categories-template" type="text/x-handlebars-template">
+                <li><a href="#" onclick="loadData('gallery','gallery-template','gallery')">Show All</a></li>
+                {{#each data}}
+                <li><a href="#" onclick="loadData('gallery/categories/{{id}}','gallery-template','gallery')">{{name}}</a></li>
+                {{/each}}
+            </script>
+
+            <script id="gallery-template" type="text/x-handlebars-template">
+                {{#each data}}
+                <div class="col-md-3 mb-4">
+                  <img src="assets/{{imagepath}}" alt="{{name}}" class="w-100">
+                </div>
+                {{/each}}
+            </script>
+
+            <script type="text/javascript">
+              loadData('gallery-categories','gallery-categories-template','gallery-categories');
+              loadData('gallery','gallery-template','gallery');
+            </script>
 
             <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
