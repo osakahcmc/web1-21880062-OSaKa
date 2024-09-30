@@ -89,47 +89,8 @@
                 <div class="col-12 container">
                   <h1 class="text-light">Testimonials</h1>
                 </div>
-                <div class="row container">
-                  <div class="col-md-4">
-                    <div class="row">
-                      <div class="col-md-1">
-                        <img src="assets/images/quot.png" alt="testimonial">
-                      </div>
-                      <div class="col-md-11 px-4">
-                        <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. 
-                          Typi non habent claritatem insieorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ilegunt saepius...</p>
-                        <p class="text-start text-light">Patrick Pool</p>
-                        <p><a href="mailto:info@demolink.org">info@demolink.org</a></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="row">
-                      <div class="col-md-1">
-                        <img src="assets/images/quot.png" alt="testimonial">
-                      </div>
-                      <div class="col-md-11 px-4">
-                        <p>Claritas est etiam processus dynamicus, sequitur mutationem consuetudium ctorum. 
-                          Mirum est notare quam littera anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. 
-                          Eodem modo typi, qui nunc nobis videntur parum clari...</p>
-                        <p class="text-start text-light">Sam Kromstain</p>
-                        <p><a href="mailto:info@demolink.org">info@demolink.org</a></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="row">
-                      <div class="col-md-1">
-                        <img src="assets/images/quot.png" alt="testimonial">
-                      </div>
-                      <div class="col-md-11 px-4">
-                        <p>quinvestigationes demonstraverunt lectores Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium ctorum. 
-                          Mirum est notare quam littera anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo...</p>
-                        <p class="text-start text-light">Alan Smith</p>
-                        <p><a href="mailto:info@demolink.org">info@demolink.org</a></p>
-                      </div>
-                    </div>
-                  </div>
+                <div class="row container" id="testimonials">
+                  
                 </div>
               </div>
               <div class="col-md-1">
@@ -251,6 +212,23 @@
               </div>
               {{/each}}
             </script> 
+
+            <script id="testimonials-template" type="text/x-handlebars-template">
+              {{#each data}}
+              <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-1">
+                      <img src="assets/images/quot.png" alt="{{name}}">
+                    </div>
+                    <div class="col-md-11 px-4">
+                      <p>{{{summary}}}</p>
+                      <p class="text-start text-light">{{name}}</p>
+                      <p><a href="mailto:info@demolink.org">{{email}}</a></p>
+                    </div>
+                </div>
+              </div>
+              {{/each}}
+            </script>
             
             <script id="handlebars-details" type="text/x-handlebars-template">
               {{#each data}}
@@ -280,6 +258,7 @@
               loadData('aboutus','about-us-template','about-us');
               loadData('visions','our-vision-template','our-vision');
               loadData('team','our-team-template','our-team');
+              loadData('testimonials','testimonials-template','testimonials');
             </script>
 
             <!-- Modal -->
