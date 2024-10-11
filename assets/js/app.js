@@ -64,3 +64,31 @@ async function loadBlogDetails(blogId, gotoComments = false) {
         window.location.href = '#comments';
     }
 }
+
+
+async function onSubmit(event) {
+    event.preventDefault();
+
+    grecaptcha.enterprise.ready(async () => {
+      grecaptcha.enterprise.execute('6LdOO14qAAAAAAc9hDjARARzQCnCI3Bdiyvvxq4U', {action: 'submit'})
+      .then(async function(token) {
+        let response = await fetch('verify.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({'g-token': token})
+        });
+        if(response.status == 200){
+          sendMail();
+        } else {
+          document.getElementById('responseMessage').innerHTML = 'Can not verify reCAPTCHA';
+        }
+      });
+    });
+  }
+
+  async function sendMail(){
+    document.getElementById('responseMessage').innerHTML = 'OK';
+  }

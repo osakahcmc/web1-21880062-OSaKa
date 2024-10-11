@@ -22,7 +22,7 @@ var marker = new ol.Feature({
 marker.setStyle(new ol.style.Style({
     image: new ol.style.Icon(({
         crossOrigin: 'anonymous',
-        src: '/images/marker-icon.png'
+        src: 'assets/images/marker-icon.png'
     }))
 }));
 

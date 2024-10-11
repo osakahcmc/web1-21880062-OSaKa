@@ -207,3 +207,8 @@ header > nav > div > ul > .nav-item.active > a,
     background: url(../images/marker1.png) 0 0 no-repeat;
     padding: 0 0 0.75rem 1.5rem;
 }
+
+#map{
+    height: 400px;
+    width: 100%;
+}
