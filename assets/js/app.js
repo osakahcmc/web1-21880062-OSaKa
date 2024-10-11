@@ -80,11 +80,8 @@ async function onSubmit(event) {
           },
           body: JSON.stringify({'g-token': token})
         });
-        if(response.status == 200){
-          sendMail();
-        } else {
-          document.getElementById('responseMessage').innerHTML = 'Can not verify reCAPTCHA';
-        }
+        const result = await response.json();
+        console.log(result);
       });
     });
   }
