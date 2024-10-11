@@ -201,3 +201,9 @@ header > nav > div > ul > .nav-item.active > a,
 #gallery >div >img{
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
+
+#blogs-categories li{
+    list-style-type: none;
+    background: url(../images/marker1.png) 0 0 no-repeat;
+    padding: 0 0 0.75rem 1.5rem;
+}
