@@ -101,6 +101,10 @@ async function verifyCaptcha(token) {
   try {
     const response = await fetch(url, {
       method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
     });
     const data = await response.json();
     return data.success && data.action === 'submit' && data.score >= 0.5;
