@@ -52,8 +52,9 @@
                       <a class="nav-link" href="contacts.html">Contacts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
-                      </li>
+                      <a class="nav-link linkLogin" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
+                      <a class="nav-link linkLogout" href="#" >Logout</a>
+                    </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0 d-flex">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -192,7 +193,8 @@
                                 <a class="nav-link" href="contacts.html">Contacts</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
+                                <a class="nav-link linkLogin" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
+                                <a class="nav-link linkLogout" href="#" >Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -261,6 +263,7 @@
             </script>
 
             <script>
+              checkLogin();
               loadData('products', 'handlebars-products', 'products');
               loadData('news', 'handlebars-news', 'news');
             </script>
@@ -269,22 +272,27 @@
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                <form action="" method="get">
+                <form action="" method="get" onsubmit="login(event)">
                   <div class="modal-header text-light">
                     <h5 class="modal-title " id="exampleModalLabel" >Login</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                    <div class="justify-content-center">
+                      <div class="text-danger" id="errorMessage">
+
+                      </div>
+                    </div>
                     <div>
                       <label for="email" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="email">
+                      <input type="email" class="form-control" id="email" required>
                       <label for="password" class="form-label mt-3">Password</label>
-                      <input type="password" class="form-control" id="password">
+                      <input type="password" class="form-control" id="password" required>
                     </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </div>
               </form>  
