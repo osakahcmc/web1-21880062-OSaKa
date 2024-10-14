@@ -8,7 +8,7 @@ async function getAuthenticateToken(username, password) {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username: username, password: password })
     });
     let result = response.json();
     if (response.status == 200) {
@@ -37,7 +37,7 @@ async function login(e) {
         displayControls(false);
     }
 }
-
+// W3b1@Project
 
 function displayControls(isLogin = true) {
     let linkLogins = document.getElementsByClassName('linkLogin');
