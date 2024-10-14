@@ -90,6 +90,7 @@ async function onSubmit(event) {
     });
   }
 
+  const SEND_API = 'https://web1-api.vercel.app/users';
 
   async function sendMail(){
     let responseMessage = document.getElementById('responseMessage');
@@ -104,7 +105,7 @@ async function onSubmit(event) {
         copy: document.getElementById('copy').value
       };
       
-      let response = await fetch(`${API}/send`, {
+      let response = await fetch(`${SEND_API}/send`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
