@@ -117,8 +117,7 @@ async function onSubmit(event) {
       let result = await response.json(); 
       if(response.status == 200 ){
         responseMessage.innerHTML = result.message;
-        responseMessage.classList.remove();
-        responseMessage.classList.add('text-success');
+        responseMessage.className = 'text-success';
       }else{
         throw new Error(result.message);
       }
