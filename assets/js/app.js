@@ -70,35 +70,26 @@ async function onSubmit(event) {
     event.preventDefault();
 
     grecaptcha.enterprise.ready(async () => {
-        const token = await grecaptcha.enterprise.execute('6LdOO14qAAAAAAc9hDjARARzQCnCI3Bdiyvvxq4U', {action: 'submit'});
-        
-        try {
-            const response = await fetch('/verify', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({token: token})
-            });
-            const result = await response.json();
-            console.log(result);
-            
-            if (result.success) {
-                console.log('reCAPTCHA verification successful');
-                // Proceed with form submission or other actions
-            } else {
-                console.error('reCAPTCHA verification failed');
-                // Handle the error, maybe show a message to the user
-            }
-        } catch (error) {
-            console.error('Error during reCAPTCHA verification:', error);
-        }
+      grecaptcha.enterprise.execute('6LdOO14qAAAAAAc9hDjARARzQCnCI3Bdiyvvxq4U', {action: 'submit'})
+      .then(async function(token) {
+        let response = await fetch('verify.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({'g-token': token})
+        });
+        const result = await response.json();
+        console.log(result);
+      });
     });
-}
+  }
 
-async function sendMail(){
+  async function sendMail(){
     let responseMessage = document.getElementById('responseMessage');
     responseMessage.innerHTML = 'OK';
     responseMessage.classList.remove();
-    responseMessage.classList.add('text-success');
-}
+    responseMessage.classList.toggle('text-success');
+
+  }
