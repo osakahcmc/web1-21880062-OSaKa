@@ -116,7 +116,7 @@ async function onSubmit(event) {
   try {
     const token = await new Promise((resolve) => {
       grecaptcha.enterprise.ready(() => {
-        grecaptcha.enterprise.execute('6Ld0pmAqAAAAAF5sEQJN3mZR6AajkR_PXcc-dcLC', {action: 'submit'})
+        grecaptcha.enterprise.execute('6Ld0pmAqAAAAAF5sEQJN3mZR6AajkR_PXcc-dcLC', {action: 'LOGIN'})
           .then(resolve);
       });
     });
