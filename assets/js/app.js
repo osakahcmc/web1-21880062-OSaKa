@@ -95,7 +95,7 @@ async function loadBlogDetails(blogId, gotoComments = false) {
 //   }
 
 async function verifyCaptcha(token) {
-  const secretKey = '6Lf_t2AqAAAAAJLWD13X2F9VV05r3bMRLUa3sw6n';
+  const secretKey = '6Ld0pmAqAAAAAP7F-_RCjg9H-Qg-iSsEZkVl_3w7';
   const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
 
   try {
@@ -116,7 +116,7 @@ async function onSubmit(event) {
   try {
     const token = await new Promise((resolve) => {
       grecaptcha.enterprise.ready(() => {
-        grecaptcha.enterprise.execute('6Lf_t2AqAAAAAHXNTGeowdOtQxWcWmZ0BXgDzSs5', {action: 'submit'})
+        grecaptcha.enterprise.execute('6Ld0pmAqAAAAAF5sEQJN3mZR6AajkR_PXcc-dcLC', {action: 'submit'})
           .then(resolve);
       });
     });
