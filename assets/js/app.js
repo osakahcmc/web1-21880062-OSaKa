@@ -60,6 +60,7 @@ async function loadBlogs(request, currentPage = 1) {
 
 async function loadBlogDetails(blogId, gotoComments = false) {
     await loadData(`blogs/${blogId}`, 'details-template', 'blogs');
+    checkLogin();
     if(gotoComments){
         window.location.href = '#comments';
     }

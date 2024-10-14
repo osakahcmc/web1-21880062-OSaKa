@@ -178,20 +178,31 @@
                 <img src="assets/{{imagepath}}" alt="{{name}}" class="float-start me-3 border rounded-4">
                 <p class="text-black-50">{{{description}}}</p>
               </div>
-              <div class="py-3">
+              <div class="py-3" id="leave-comments">
                 <h3>Leave your comments</h3>
-                <form action="#" method="post" class="text-black-50">
+                <form action="#" method="post" class="text-black-50" onsubmit="addComment(event)">
+                  <input type="hidden" id="blogId" name="blogId" value="{{id}}">
+                  <div class="text-center">
+                    <div class="text-success" id="responseMessage"></div>
+                  </div>
                   <div class="row">
                     <div class="col-4">
                       <div class="mb-3">
-                        <label for="comment" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email"  placeholder="Enter your name" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name"   >
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email"   >
                       </div>
                     </div>
                   </div>
                   <div>
                     <div class="mb-3">
                       <textarea class="form-control" id="message" name="message" rows="3" placeholder="Enter your message" required></textarea>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mb-3">
+                      <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Enter your comment" required></textarea>
                     </div>
                   </div>
                   <div class="row">
@@ -209,7 +220,7 @@
               </div>
 
               <a href="#comments"></a>
-              <div class="bg-dark text-black-50 py-2">
+              <div class="bg-dark text-white py-2">
                 COMMENTS {{comments.length}}
               </div>
 
@@ -226,6 +237,7 @@
             </script>
 
             <script>
+              checkLogin();
               loadData('blogs-categories', 'blogs-categories-template', 'blogs-categories');
               loadBlogs('blogs');
             </script>
@@ -234,7 +246,7 @@
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                <form action="" method="get">
+                <form action="" method="get" onsubmit="login(event)">
                   <div class="modal-header text-light">
                     <h5 class="modal-title " id="exampleModalLabel" >Login</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

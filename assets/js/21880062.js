@@ -54,6 +54,11 @@ function displayControls(isLogin = true) {
         linkLogins[i].style.display = displayLogin;
         linkLogouts[i].style.display = displayLogout;
     }
+
+    let leaveComment = document.getElementById('leave-comment');
+    if (leaveComment) {
+        leaveComment.style.display = displayLogout;
+    }
 }
 
 
@@ -84,3 +89,41 @@ function logout() {
     localStorage.clear();
     displayControls(false);
 }
+
+async function addComment(e) {
+    e.preventDefault();
+
+    let token = localStorage.getItem('token');
+    let postData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        comment: document.getElementById('comment').value,
+        blogId: document.getElementById('blogId').value,
+        agree: (document.getElementById('agree').value == 1)
+    };
+    let responseMessage = document.getElementById('responseMessage');
+
+    try {
+        let response = await fetch(`${AUTHENTICATE_API}/comment`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(postData)
+        });
+        let result = await response.json();
+        if (response.status == 200) {
+           loadBlogDetails(postData.blogId, true);
+        } else {
+            throw new Error(result.message);
+        }
+    } catch (error) {
+        responseMessage.innerHTML = error.message;
+        responseMessage.className = 'text-danger';
+    }
+}
+
+
+
