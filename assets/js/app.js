@@ -66,76 +66,31 @@ async function loadBlogDetails(blogId, gotoComments = false) {
 }
 
 
-// async function onSubmit(event) {
-//     event.preventDefault();
-
-//     grecaptcha.enterprise.ready(async () => {
-//       grecaptcha.enterprise.execute('6LdOO14qAAAAAAc9hDjARARzQCnCI3Bdiyvvxq4U', {action: 'submit'})
-//       .then(async function(token) {
-//         let response = await fetch('verify.php', {
-//           method: 'POST',
-//           headers: {
-//             'Content-Type': 'application/json',
-//             'Accept': 'application/json'
-//           },
-//           body: JSON.stringify({'g-token': token})
-//         });
-//         const result = await response.json();
-//         console.log(result);
-//       });
-//     });
-//   }
-
-//   async function sendMail(){
-//     let responseMessage = document.getElementById('responseMessage');
-//     responseMessage.innerHTML = 'OK';
-//     responseMessage.classList.remove();
-//     responseMessage.classList.toggle('text-success');
-
-//   }
-
-async function verifyCaptcha(token) {
-  const secretKey = '6Ld0pmAqAAAAAP7F-_RCjg9H-Qg-iSsEZkVl_3w7';
-  const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
-
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-    });
-    const data = await response.json();
-    return data.success && data.action === 'submit' && data.score >= 0.5;
-  } catch (error) {
-    console.error('Error verifying captcha:', error);
-    return false;
-  }
-}
-
 async function onSubmit(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  try {
-    const token = await new Promise((resolve) => {
-      grecaptcha.enterprise.ready(() => {
-        grecaptcha.enterprise.execute('6Ld0pmAqAAAAAF5sEQJN3mZR6AajkR_PXcc-dcLC', {action: 'LOGIN'})
-          .then(resolve);
+    grecaptcha.enterprise.ready(async () => {
+      grecaptcha.enterprise.execute('6Ld0pmAqAAAAAF5sEQJN3mZR6AajkR_PXcc-dcLC', {action: 'submit'})
+      .then(async function(token) {
+        let response = await fetch('verify.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({'g-token': token})
+        });
+        const result = await response.json();
+        console.log(result);
       });
     });
-
-    const isValid = await verifyCaptcha(token);
-
-    if (isValid) {
-      await sendMail();
-    } else {
-      let responseMessage = document.getElementById('responseMessage');
-      responseMessage.innerHTML = 'Captcha verification failed. Please try again.';
-      responseMessage.classList.remove('text-success');
-      responseMessage.classList.add('text-danger');
-    }
-  } catch (error) {
-    console.error('Error during form submission:', error);
   }
-}
+
+  async function sendMail(){
+    let responseMessage = document.getElementById('responseMessage');
+    responseMessage.innerHTML = 'OK';
+    responseMessage.classList.remove();
+    responseMessage.classList.toggle('text-success');
+
+  }
+
