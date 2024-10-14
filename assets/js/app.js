@@ -87,5 +87,9 @@ async function onSubmit(event) {
   }
 
   async function sendMail(){
-    document.getElementById('responseMessage').innerHTML = 'OK';
+    let responseMessage = document.getElementById('responseMessage');
+    responseMessage.innerHTML = 'OK';
+    responseMessage.classList.remove();
+    responseMessage.classList.add('text-success');
+
   }
