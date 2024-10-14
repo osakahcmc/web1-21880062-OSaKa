@@ -5,12 +5,12 @@ async function getAuthenticateToken(username, password) {
     let response = await fetch(`${AUTHENTICATE_API}/authenticate`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username: username, password: password })
+        body: JSON.stringify({username: username, password: password})
     });
-    let result = response.json();
+    let result = await response.json();
     if (response.status == 200) {
         return result.token;
     }
