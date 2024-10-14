@@ -80,8 +80,12 @@ async function onSubmit(event) {
           },
           body: JSON.stringify({'g-token': token})
         });
-        const result = await response.json();
-        console.log(result);
+        if(response){
+            sendMail();
+        }else{
+            sendMail();
+            console.log(response);
+        }
       });
     });
   }
