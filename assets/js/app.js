@@ -72,7 +72,7 @@ async function onSubmit(event) {
     grecaptcha.enterprise.ready(async () => {
       grecaptcha.enterprise.execute('6Ld0pmAqAAAAAF5sEQJN3mZR6AajkR_PXcc-dcLC', {action: 'submit'})
       .then(async function(token) {
-        let response = await fetch('verify.php', {
+        let response = await fetch('assets/js/verify.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
