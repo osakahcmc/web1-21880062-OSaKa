@@ -90,11 +90,42 @@ async function onSubmit(event) {
     });
   }
 
+
   async function sendMail(){
     let responseMessage = document.getElementById('responseMessage');
-    responseMessage.innerHTML = 'OK';
-    responseMessage.classList.remove();
-    responseMessage.classList.toggle('text-success');
+    
+    try {
+      let token = await getAuthenticateToken('test', '1c3cr3@m');      
+      let postData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+        copy: document.getElementById('copy').value
+      };
+      
+      let response = await fetch(`${API}/send`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(postData)
+      });
 
+      let result = await response.json(); 
+      if(response.status == 200 ){
+        responseMessage.innerHTML = result.message;
+        responseMessage.classList.remove();
+        responseMessage.classList.add('text-success');
+      }else{
+        throw new Error(result.message);
+      }
+
+    } catch (error) {
+      responseMessage.innerHTML = error;
+      responseMessage.classList.remove();
+      responseMessage.classList.add('text-danger');
+    }
   }
-
