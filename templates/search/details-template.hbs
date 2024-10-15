@@ -1,7 +1,10 @@
  {{#each data}}
-              <h1>{{name}}</h1>
-              {{#if imagepath}}
-                <img src="assets/{{imagepath}}" alt="{{name}}" class="float-start me-3">
-              {{/if}}
-              <div class="text-black-50">{{{description}}}</div>
-              {{/each}}
+ <div>
+  <h1>{{name}}</h1>
+    {{#if imagepath}}
+      <img src="assets/{{imagepath}}" alt="{{name}}" class="float-start me-3">
+    {{/if}}
+    <div class="text-black-50">{{{description}}}</div>
+    {{/each}}
+ </div>
+              
