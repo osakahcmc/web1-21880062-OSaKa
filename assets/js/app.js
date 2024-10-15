@@ -12,11 +12,12 @@ const API = 'https://web1-api.vercel.app/api';
 async function loadData(request, templateId, viewId) {
     const response = await fetch(`${API}/${request}`);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
 
-    var source = document.getElementById(templateId).innerHTML;
-    var template = Handlebars.compile(source);
-    var context = {data:data};
+    // var source = document.getElementById(templateId).innerHTML;
+    // var template = Handlebars.compile(source);
+    var template = Handlebars.templates[templateId];
+    var context = {data: data};
     var view = document.getElementById(viewId);
     view.innerHTML = template(context);
     // console.log(html);
@@ -50,8 +51,7 @@ async function loadBlogs(request, currentPage = 1) {
     context.request = request;
     // console.log(data);
 
-    var source = document.getElementById('blogs-template').innerHTML;
-    var template = Handlebars.compile(source);
+    var template = Handlebars.templates['blogs-template'];
     // var context = {data:data};
     var view = document.getElementById('blogs');
     view.innerHTML = template(context);

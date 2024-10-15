@@ -1,0 +1,15 @@
+<div class="row content_box">
+                {{#each data}}
+                <div class="col-md-3">
+                  <div class="card border-0">
+                    <div class="card-body text-center">
+                      <img src="assets/{{imagepath}}" alt="{{name}}" onmouseover="rollover(this,'assets/{{imagepath}}')" onmouseout="rollover(this,'assets/{{imagepath}}',false)">
+                      <h3 class="card-title">{{name}}</h3>
+                      <p class="card-text text-black-50">{{summary}}</p>
+                      <!-- <a href="#" class="btn btn-link" onclick="loadData('products/{{id}}','handlebars-details','content')">Read more</a> -->
+                      <a href="?request=products/{{id}}" class="readmore btk btn-link pt-0">Read more</a>
+                    </div>
+                  </div>
+                </div>
+                {{/each}}
+              </div>

@@ -1,0 +1,13 @@
+<div class="row">
+    {{#each data}}
+    <div class="col-md-4">
+        <h1>{{name}}</h1>
+        <img src="assets/{{thumbpath}}"  class ="w-100" alt="{{name}}">
+    </div>
+    <div class="col-md-8">
+        <p class="text-black-50 about-paragraph">{{{summary}}}</p>
+        <!-- <a href="#" onclick="loadData('aboutus/{{id}}','handlebars-details','content')">Read more</a> -->
+            <a href="#aboutus/{{id}}" class="btn btn-primary" onclick="loadDetails('aboutus/{{id}}','handlebars-details','content')">Read more</a>
+    </div>
+    {{/each}}
+</div>

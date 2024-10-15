@@ -1,0 +1,4 @@
+<li><a href="#" onclick="loadData('gallery','gallery-template','gallery')">Show All</a></li>
+                {{#each data}}
+                <li><a href="#" onclick="loadData('gallery/categories/{{id}}','gallery-template','gallery')">{{name}}</a></li>
+                {{/each}}

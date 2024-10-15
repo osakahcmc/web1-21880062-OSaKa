@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-12">
+        <h1>Our Vision</h1>
+    </div>
+    <div class="row">
+        {{#each data}}
+        <div class="col-md-4 mb-2">
+            <!-- <a href="#" onclick="loadData('visions/{{id}}','handlebars-details','content')"> -->
+            <a href="#visions/{{id}}" onclick="loadDetails('visions/{{id}}','handlebars-details','content')">
+            <img src="assets/{{thumbpath}}" class="w-100" alt="{{name}}">
+            </a>
+        </div>
+        <div class="col-md-8 mb-2">
+            <!-- <a href="#" onclick="loadData('visions/{{id}}','handlebars-details','content')"> -->
+            <a href="#visions/{{id}}"  onclick="loadDetails('visions/{{id}}','handlebars-details','content')">
+            <h5>{{name}}</h5>
+            <p class="text-black-50">{{{summary}}}</p>
+            </a>
+        </div>
+        </a>
+        {{/each}}
+    </div>
+    </div>

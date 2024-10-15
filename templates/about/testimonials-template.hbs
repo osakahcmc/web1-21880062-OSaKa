@@ -1,0 +1,14 @@
+{{#each data}}
+              <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-1">
+                      <img src="assets/images/quot.png" alt="{{name}}">
+                    </div>
+                    <div class="col-md-11 px-4">
+                      <p>{{{summary}}}</p>
+                      <p class="text-start text-light">{{name}}</p>
+                      <p><a href="mailto:info@demolink.org">{{email}}</a></p>
+                    </div>
+                </div>
+              </div>
+              {{/each}}

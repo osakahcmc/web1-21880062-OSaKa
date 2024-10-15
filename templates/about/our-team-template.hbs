@@ -1,0 +1,12 @@
+{{#each data}}
+              <div class="col-md-3">
+                <!-- <a href="#" onclick="loadData('team/{{id}}','handlebars-details','content')"> -->
+                <a href="#team/{{id}}" onclick="loadDetails('team/{{id}}','handlebars-details','content')">
+                  <img src="assets/{{thumbpath}}" class="w-100" alt="{{name}}">
+                  <h3>{{name}}</h3>
+                  <p class="text-black-50">
+                    {{{summary}}}
+                  </p>
+                </a>
+              </div>
+              {{/each}}
